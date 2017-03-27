@@ -1,0 +1,9 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+	<route id="simple-route">
+		<from id="timer" uri="timer:foo?period=2000" />
+		<transform id="transform">
+			<method ref="myTransformer" />
+		</transform>
+		<log id="log" message=">>> ${body}" />
+	</route>
+</routes>
