@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.extrasys.studio.model.dao.BookDAOImpl;
+import it.extrasys.studio.model.dao.BookDAO;
 import it.extrasys.studio.model.entity.BookEntity;
 
 @Component("bookService")
@@ -12,20 +12,15 @@ import it.extrasys.studio.model.entity.BookEntity;
 public class BookManagerImpl implements BookManager {
 
 	@Autowired
-	BookDAOImpl bookDao;
+	BookDAO bookDao;
 	
 	@Override
-	public void create(BookEntity bookEntity) {
-		bookDao.create(bookEntity);
+	public BookEntity save(BookEntity bookEntity) {
+		return bookDao.save(bookEntity);
 	}
 
 	@Override
 	public BookEntity findOne(long id) {
 		return bookDao.findOne(id);
-	}
-
-	@Override
-	public BookEntity update(BookEntity bookEntity) {
-		return bookDao.update(bookEntity);
 	}
 }

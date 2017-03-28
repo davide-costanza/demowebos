@@ -11,6 +11,8 @@
 	<name>demowebos</name>
 	<description>Demo project for Spring Boot</description>
 
+	<!-- E' possibile non usare il parent POM di Spring Boot (andando incontro a qualche problema con i plugin); vedi: 
+	http://stackoverflow.com/questions/21317006/spring-boot-parent-pom-when-you-already-have-a-parent-pom -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -22,14 +24,27 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		
+		<camel-version>2.18.3</camel-version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-parent</artifactId>
+				<version>${camel-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
-			<version>2.18.3</version>
-		</dependency>	
+			</dependency>	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -43,6 +58,19 @@
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-swagger-java</artifactId>
+		</dependency>
+				
 		<!-- 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -69,6 +97,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

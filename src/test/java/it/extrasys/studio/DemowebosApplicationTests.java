@@ -17,6 +17,7 @@ import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.extrasys.studio.model.dao.BookDAO;
+import it.extrasys.studio.model.dao.ShelfRepository;
 import it.extrasys.studio.model.entity.BookEntity;
 
 @RunWith(SpringRunner.class)
@@ -30,7 +31,10 @@ public class DemowebosApplicationTests {
 
 	@Autowired
 	private BookDAO bookDao;
-	
+
+	@Autowired
+	private ShelfRepository shelfRepo;
+
 	@Test
 	@Transactional
 	@Commit
