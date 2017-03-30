@@ -8,5 +8,7 @@ public interface BookDAO extends CrudRepository<BookEntity, Long> {
 	@SuppressWarnings("unchecked")
 	BookEntity save(BookEntity bookEntity);
 	
-	BookEntity findOne(long id);	
+	BookEntity findOne(long id);
+	
+	Iterable<BookEntity> findAll();
 }

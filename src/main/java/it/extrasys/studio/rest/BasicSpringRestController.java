@@ -14,7 +14,7 @@ import it.extrasys.studio.model.manager.BookManager;
 
 @Controller
 @RequestMapping("/basic-rest")
-public class BasicRestController {
+public class BasicSpringRestController {
 	private static final String TEMPLATE = "Wonder %s!";
 	
 	private final AtomicLong counter = new AtomicLong();

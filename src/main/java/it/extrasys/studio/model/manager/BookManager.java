@@ -6,4 +6,6 @@ public interface BookManager {
 	BookEntity save(BookEntity bookEntity);
 	
 	BookEntity findOne(long id);
+	
+	Iterable<BookEntity> findAll();
 }

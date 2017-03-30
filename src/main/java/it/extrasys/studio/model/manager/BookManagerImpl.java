@@ -23,4 +23,9 @@ public class BookManagerImpl implements BookManager {
 	public BookEntity findOne(long id) {
 		return bookDao.findOne(id);
 	}
+
+	@Override
+	public Iterable<BookEntity> findAll() {
+		return bookDao.findAll();
+	}
 }
