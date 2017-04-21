@@ -1,0 +1,53 @@
+
+spring:
+  h2:
+    console:
+      enabled: true
+
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+  test:
+    database:
+      connection: H2
+      replace: ANY
+
+server:
+  contextPath: /demowebalone
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+    it:
+      extrasys:
+        studio: debug
+
+---
+
+spring:
+  profiles: dev
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+  test:
+    database:
+      connection: H2
+      replace: ANY
+
+server:
+  contextPath: /demowebalone
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+    it:
+      extrasys:
+        studio: debug
