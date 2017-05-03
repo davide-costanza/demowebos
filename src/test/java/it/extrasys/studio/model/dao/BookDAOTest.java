@@ -1,4 +1,4 @@
-package it.extrasys.studio;
+package it.extrasys.studio.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,6 @@ import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 
-import it.extrasys.studio.model.dao.BookDAO;
 import it.extrasys.studio.model.entity.BookEntity;
 
 /**
@@ -25,9 +24,9 @@ import it.extrasys.studio.model.entity.BookEntity;
  */
 @DataJpaTest
 @RunWith(SpringRunner.class)
-public class DemowebosApplicationTests {
+public class BookDAOTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DemowebosApplicationTests.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BookDAOTest.class);
 
     @Autowired
     private EntityManager entityManager;

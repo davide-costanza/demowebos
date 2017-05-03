@@ -1,5 +1,18 @@
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# http://docs.spring.io/spring-boot/docs/current/reference/html/configuration-metadata.html
 
 spring:
+
+  # In-memory db H2 in modalita' di compatibilita' MySQL
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:demowebosh2;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+
+  # Usa il dialetto specifico per MySql. Vedi "select @@version;" con la cli di MySql
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  # http://localhost:8080/h2-console
   h2:
     console:
       enabled: true
@@ -30,6 +43,20 @@ logging:
 
 spring:
   profiles: dev
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysqldb
+    username: mysql
+    password: mysql
+    #driver-class-name: com.mysql.jdbc.Driver
+  
+  jpa:
+    #database: MYSQL
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      # Default to "create-drop" when using an embedded database, "none" otherwise!
+      ddl-auto: create-drop
+
   mvc:
     view:
       prefix: /WEB-INF/jsp/

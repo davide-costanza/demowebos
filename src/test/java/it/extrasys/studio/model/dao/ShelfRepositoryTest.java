@@ -1,4 +1,4 @@
-package it.extrasys.studio;
+package it.extrasys.studio.model.dao;
 
 import java.util.UUID;
 
@@ -11,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import it.extrasys.studio.model.dao.ShelfRepository;
 import it.extrasys.studio.model.entity.ShelfEntity;
 
 /**
@@ -24,9 +23,9 @@ import it.extrasys.studio.model.entity.ShelfEntity;
 // @Transactional di default
 @DataJpaTest
 @RunWith(SpringRunner.class)
-public class ShelfTests {
+public class ShelfRepositoryTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ShelfTests.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ShelfRepositoryTest.class);
 
     @Autowired
     private ShelfRepository shelfRepo;
