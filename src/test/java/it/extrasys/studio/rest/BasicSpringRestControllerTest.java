@@ -88,6 +88,9 @@ public class BasicSpringRestControllerTest {
     /**
      * Metodo di preparazione invocato prima di ogni test.
      *
+     * NOTA BENE: Per le fixture dei test REST e' sufficiente usare i repository
+     * JPA all'inizio di ciascun test.
+     *
      * @throws Exception
      */
     @Before
@@ -102,6 +105,12 @@ public class BasicSpringRestControllerTest {
 
     /**
      * Testa la chiamata create book.
+     *
+     * NOTA BENE: E' sufficiente verificare che la chiamata abbia successo, non
+     * occorre verificare lo stato del db. Questi test devono esercitare solo i
+     * servizi e assumono che lo strato di persistenza sia testato a parte (se
+     * lo stato di persistenza funziona e il servizio risponde senza errori
+     * allora significa che il giro e' chiuso correttamente).
      *
      * @throws Exception
      */
