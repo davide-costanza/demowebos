@@ -78,3 +78,43 @@ logging:
     it:
       extrasys:
         studio: debug
+
+---
+ 
+spring:
+  profiles: dockerdev
+
+  datasource:
+    #platform: h2
+    #url: jdbc:h2:mem:demowebosh2;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: create-drop
+
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+  test:
+    database:
+      connection: H2
+      replace: ANY
+
+server:
+  port: 8080
+  contextPath: /demowebdock
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+    it:
+      extrasys:
+        studio: debug
