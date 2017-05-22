@@ -1,0 +1,21 @@
+version: "3"
+
+# Usa il file name (basename) esplicito "demo_dev" in modo da avere nomi prevedibili per la network e i container
+
+services:
+  mysql_db:
+    image: mysql
+    env_file:
+      - db.env
+    volumes:
+      - ./devscape/mysql/data:/var/lib/mysql
+    # Non in development
+    # restart: always
+
+### TODO: JBoss Dev Studio (meglio se con i corretti permessi di accesso ai sorgenti: 
+### nomachine dovrebbe appartenere allo stesso user group di "1000")
+  
+#  mysql_workbench:
+#    image: devscape/mysql_workbench:1.0
+#    ports:
+#      - 4001:4000

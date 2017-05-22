@@ -1,0 +1,21 @@
+version: "3"
+
+# docker-compose -f demo_dev.yml -f springboot_app.yml run springboot_app
+
+services:
+  springboot_app:
+    image: demowebos-web:latest
+    ports:
+      - 8080:8080
+      - 8000:8000
+    env_file:
+      - db.env
+    environment:
+        # Sfrutta il basename definito esplicitamente
+      - DATABASE_HOST=demo_dev_mysql_db_1
+      - DEBUG=true
+      - DEBUG_PORT=8000
+    # Equivalente dell'opzione "-t" di "docker run"
+    tty: true
+    # Non in development    
+    # restart: always
