@@ -1,6 +1,6 @@
 version: "3"
 
-# docker-compose -f demo_dev.yml -f springboot_app.yml run springboot_app
+# docker-compose -f docker-compose.yml -f docker-compose.app.yml -p demodev run -d springboot_app
 
 services:
   springboot_app:
@@ -11,8 +11,8 @@ services:
     env_file:
       - db.env
     environment:
-        # Sfrutta il basename definito esplicitamente
-      - DATABASE_HOST=demo_dev_mysql_db_1
+        # Sfrutta il project name definito esplicitamente
+      - DATABASE_HOST=demodev_mysql_db_1
       - DEBUG=true
       - DEBUG_PORT=8000
     # Equivalente dell'opzione "-t" di "docker run"

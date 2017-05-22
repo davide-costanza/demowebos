@@ -1,6 +1,7 @@
 version: "3"
 
-# Usa il file name (basename) esplicito "demo_dev" in modo da avere nomi prevedibili per la network e i container
+# Usa il project name esplicito "demodev" (non devono esserci "_") in modo da avere nomi 
+# prevedibili per la network e i container: docker-compose -p demodev up -d
 
 services:
   mysql_db:
