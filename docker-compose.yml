@@ -13,10 +13,23 @@ services:
     # Non in development
     # restart: always
 
-### TODO: JBoss Dev Studio (meglio se con i corretti permessi di accesso ai sorgenti: 
-### nomachine dovrebbe appartenere allo stesso user group di "1000")
+  # docker-compose run -d jboss_devstudio
+
+  jboss_devstudio:
+    build:
+      context: ./dev/jboss_devstudio
+      #args:
+      #  - usergid
+    image: demodev/jboss_devstudio
+    volumes:
+      # Condivide i sorgenti, la .m2 del container e il workspace dell'IDE
+      - .:/home/nomachine/sources
+      - ./devscape/maven/.m2:/home/nomachine/.m2
+      - ./devscape/jboss_devstudio/workspace:/home/nomachine/devstudio_workspace
+    ports:
+      - 4001:4000
   
 #  mysql_workbench:
 #    image: devscape/mysql_workbench:1.0
 #    ports:
-#      - 4001:4000
+#      - 4002:4000
