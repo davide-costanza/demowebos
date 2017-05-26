@@ -14,3 +14,4 @@ LABEL maintainer "Davide Costanza davide.costanza@extrays.it"
 # Inoltre, la directory dei sorgenti sulla macchina host deve essere condivisa a livello di gruppo:
 # $ chmod -R g+w /home/.../demowebos  (chmod -R g+w .)
 RUN usermod -a -G nx nomachine
+#RUN chown -R nomachine:nx /home/nomachine/.m2 && chown -R nomachine:nx /home/nomachine/devstudio_workspace

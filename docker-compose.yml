@@ -25,7 +25,7 @@ services:
       # Condivide i sorgenti, la .m2 del container e il workspace dell'IDE
       - .:/home/nomachine/sources
       - ./devscape/maven/.m2:/home/nomachine/.m2
-      - ./devscape/jboss_devstudio/workspace:/home/nomachine/devstudio_workspace
+      #- ./devscape/jboss_devstudio/workspace:/home/nomachine/devstudio_workspace
     ports:
       - 4001:4000
   

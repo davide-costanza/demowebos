@@ -24,4 +24,7 @@ nbdist/
 .nb-gradle/
 
 ### devops ###
-devscape/
+devscape/jboss_devstudio/
+devscape/maven/.m2/repository/
+devscape/maven/.m2/wrapper/
+devscape/mysql/
