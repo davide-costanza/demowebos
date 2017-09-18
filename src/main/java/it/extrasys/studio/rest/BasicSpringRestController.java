@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.slf4j.Logger;
@@ -32,7 +33,13 @@ import it.extrasys.studio.model.manager.BookManager;
 public class BasicSpringRestController {
     private static final Logger LOG = LoggerFactory.getLogger(BasicSpringRestController.class);
 
-    private static final String TEMPLATE = "Wonder %s!";
+    //private static final String TEMPLATE = "Wonder %s!";
+
+    private static final String[] NAMES = { "Le uova fatali", "Cronache della galassia",
+    		"L'Ordine della Fenice", "50 sfumature di grigio", "Le nuvole", "Fantozzi" };
+
+    private static final String[] AUTHORS = { "Bulgakov", "Asimov",
+    		"Rowling", "Aristotele", "Aristofane", "Villaggio" };
 
     private final AtomicLong counter = new AtomicLong();
 
@@ -50,10 +57,22 @@ public class BasicSpringRestController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public BookEntity sayHello(@RequestParam(value = "name", required = false, defaultValue = "book") String name) {
-        BookEntity book = new BookEntity(String.format(TEMPLATE, name), "Unknown" + this.counter.incrementAndGet());
+    	
+    	BookEntity resBook = null;
+    	
+    	try {
+        	String bookName = NAMES[new Random().nextInt(NAMES.length)];
+        	String bookAuthor = AUTHORS[new Random().nextInt(AUTHORS.length)];
 
-        BookEntity resBook = this.bookManager.save(book);
+            BookEntity book = new BookEntity(bookName, bookAuthor);
 
+            resBook = this.bookManager.save(book);
+            
+            LOG.debug("New book: " + resBook);
+    	} catch (Exception e) {
+    		LOG.error("Your code is a mess!", e);
+    	}
+    	
         return resBook;
     }
 
