@@ -26,6 +26,8 @@ services:
       - .:/home/nomachine/sources
       - ./devscape/maven/.m2:/home/nomachine/.m2
       - ./devscape/jboss_devstudio/workspace:/home/nomachine/devstudio_workspace
+      # Condivide il Docker socket
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 4001:4000
   
